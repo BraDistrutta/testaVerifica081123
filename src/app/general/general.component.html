@@ -1,0 +1,28 @@
+<div class="container-fluid">
+    <div class="card" *ngFor="let d of dati" (click)="inviaDati(d)">
+      <div class="card-title">
+        <h4><b>{{d.name.title | titlecase}}. {{d.name.first | titlecase}} {{d.name.last | titlecase}}</b></h4>
+      </div>
+      <div class="card-body">
+        <h5><b>Residenza:</b> {{d.location.city | titlecase}}, {{d.location.state | titlecase}}</h5>
+        <h5><b>Email:</b>{{d.email}}</h5>
+        <h5><b>Picture:</b></h5>
+        <img [src]="d.picture.thumbnail" [alt]="d.name.first" class="card-img rounded-circle"> <!--Non funziona il sito delle immagini-->
+
+      </div>
+      <elementi [listaDati]="obj" [datoCard]="d" [datoClick]="dato" (sendCell)="getCell($event)">
+
+      </elementi>
+      <div class="card-footer" *ngIf="numeroCell != null && d == dato">
+        <h5><b>Numero Cellulare alt:</b> {{numeroCell}}</h5>
+      </div>
+    </div>
+  <div class="form-select">
+    Sesso:
+    <select name="optionlist " onChange="">
+      <option>/</option>
+      <option>M</option>
+      <option>F</option>
+    </select>
+  </div>
+</div>

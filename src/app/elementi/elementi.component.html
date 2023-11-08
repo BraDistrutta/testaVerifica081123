@@ -1,0 +1,18 @@
+<div class="card-body" *ngIf="listaDati.length != 0 && datoCard == datoClick">
+  <div class="card-text" *ngFor="let dato of listaDati | keyvalue">
+      <p *ngIf="!(JSON.stringify(dato.value)).startsWith('{')"><b>{{dato.key}}</b> : <span>{{dato.value}}</span></p>
+
+    <!--
+      <p style="visibility: hidden" [(ngModel)]="oggettoLista">{{dato.value}}</p>
+      <p *ngFor="let o of oggettoLista | keyvalue">
+        <b>{{o.key}}</b> : {{o.value}}
+      </p>
+  -->
+
+  </div>
+  <!--<button class="btn btn-light btn-outline-secondary" (click)="inviaPremi(listaStudenti)">Calcola Premi</button>-->
+
+  <input type="text" [(ngModel)]="cell">
+  &nbsp;&nbsp;&nbsp;&nbsp;<input type="button" class="btn btn-success" (click)="inviaCell(cell)" value="Aggiungi Numero Secondario">
+</div>
+
